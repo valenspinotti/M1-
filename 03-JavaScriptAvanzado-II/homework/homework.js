@@ -20,10 +20,11 @@ function counter() {
   otroContador()      // 2
   otroContador()      // 3
    */
-  var numero = 1
-  return function nuevoContador() {
-    return numero++
+  var contar = 0
+  function contador(){
+    return contar += 1
   }
+  return contador;
 }
 
 function cacheFunction(cb) {
