@@ -21,7 +21,7 @@ function counter() {
   otroContador()      // 3
    */
   var contar = 0
-  function contador(){
+  function contador() {
     return contar += 1
   }
   return contador;
@@ -55,14 +55,14 @@ function cacheFunction(cb) {
   square(5) y lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) 
 
   */
-  var memoriaCache = {}
+  let cache = {}
   return function (arg) {
-    if (memoriaCache.hasOwnProperty(arg)) {
-      return memoriaCache[arg]
+    if (cache.hasOwnProperty(arg) === true) {
+      return cache[arg]
     }
     else {
-      memoriaCache[arg] = cb(arg);
-      return memoriaCache[arg];
+      cache[arg] = cb(arg);
+      return cache[arg]
     }
   }
 }
@@ -108,9 +108,11 @@ function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
   return delimitadorIzquierda + cadena + delimitadorDerecha;
 }
 
-let textoAsteriscos = crearCadena.bind(null, '*', '*');
-let textoGuiones = crearCadena.bind(null, '-', '-');
-let textoUnderscore = crearCadena.bind(null, '_', '_');
+let textoAsteriscos = crearCadena.bind('','*','*');
+let textoGuiones = crearCadena.bind('','-','-');
+let textoUnderscore = crearCadena.bind('','_','_');
+
+
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
